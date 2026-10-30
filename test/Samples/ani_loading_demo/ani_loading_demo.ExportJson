@@ -1,0 +1,263 @@
+{
+ "armature_data": [
+  {
+   "name": "loading_demo",
+   "bone_data": [
+    {
+     "name": "label",
+     "parent": "",
+     "x": 0,
+     "y": 0,
+     "z": 0,
+     "kX": 0,
+     "cX": 1,
+     "cY": 1,
+     "dI": 0,
+     "visible": "1",
+     "display_data": [
+      {
+       "name": "loading"
+      }
+     ]
+    },
+    {
+     "name": "dot1",
+     "parent": "",
+     "x": 42,
+     "y": 0,
+     "z": 1,
+     "kX": 0,
+     "cX": 1,
+     "cY": 1,
+     "dI": 0,
+     "visible": "1",
+     "display_data": [
+      {
+       "name": "dot"
+      }
+     ]
+    },
+    {
+     "name": "dot2",
+     "parent": "",
+     "x": 56,
+     "y": 0,
+     "z": 2,
+     "kX": 0,
+     "cX": 1,
+     "cY": 1,
+     "dI": 0,
+     "visible": "1",
+     "display_data": [
+      {
+       "name": "dot"
+      }
+     ]
+    },
+    {
+     "name": "dot3",
+     "parent": "",
+     "x": 70,
+     "y": 0,
+     "z": 3,
+     "kX": 0,
+     "cX": 1,
+     "cY": 1,
+     "dI": 0,
+     "visible": "1",
+     "display_data": [
+      {
+       "name": "dot"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "animation_data": [
+  {
+   "name": "loading_demo",
+   "mov_data": [
+    {
+     "name": "loop",
+     "lp": true,
+     "sc": 1,
+     "dr": 3,
+     "mov_bone_data": [
+      {
+       "name": "dot1",
+       "frame_data": [
+        {
+         "fi": 0,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 255
+         }
+        },
+        {
+         "fi": 1,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 255
+         }
+        },
+        {
+         "fi": 2,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 255
+         }
+        },
+        {
+         "fi": 3,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 255
+         }
+        }
+       ]
+      },
+      {
+       "name": "dot2",
+       "frame_data": [
+        {
+         "fi": 0,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 0
+         }
+        },
+        {
+         "fi": 1,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 255
+         }
+        },
+        {
+         "fi": 2,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 255
+         }
+        },
+        {
+         "fi": 3,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 0
+         }
+        }
+       ]
+      },
+      {
+       "name": "dot3",
+       "frame_data": [
+        {
+         "fi": 0,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 0
+         }
+        },
+        {
+         "fi": 1,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 0
+         }
+        },
+        {
+         "fi": 2,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 255
+         }
+        },
+        {
+         "fi": 3,
+         "dI": 0,
+         "x": 0,
+         "y": 0,
+         "kX": 0,
+         "cX": 1,
+         "cY": 1,
+         "tweenFrame": false,
+         "color": {
+          "a": 0
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

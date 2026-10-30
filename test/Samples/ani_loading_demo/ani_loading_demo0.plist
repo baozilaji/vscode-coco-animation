@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+<dict>
+  <key>frames</key>
+  <dict>
+    <key>loading</key>
+    <dict>
+      <key>x</key><integer>0</integer>
+      <key>y</key><integer>0</integer>
+      <key>width</key><integer>70</integer>
+      <key>height</key><integer>14</integer>
+    </dict>
+    <key>dot</key>
+    <dict>
+      <key>x</key><integer>0</integer>
+      <key>y</key><integer>18</integer>
+      <key>width</key><integer>14</integer>
+      <key>height</key><integer>14</integer>
+    </dict>
+  </dict>
+  <key>metadata</key>
+  <dict><key>format</key><integer>0</integer></dict>
+</dict>
+</plist>
