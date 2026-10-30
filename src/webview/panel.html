@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Security-Policy"
+		content="default-src 'none'; img-src CSP_SOURCE data: https:; style-src CSP_SOURCE 'unsafe-inline'; script-src CSP_SOURCE;">
+	<title>CocoStudio 动画预览</title>
+	<link rel="stylesheet" href="PANEL_CSS_URI">
+</head>
+
+<body>
+	<div id="title" class="title">CocoStudio 动画预览器</div>
+
+	<div class="tabs">
+		<button class="tabBtn active" data-tab="Preview">预览</button>
+		<button class="tabBtn" data-tab="Atlas">图集</button>
+		<button class="tabBtn" data-tab="Grid">动作总览</button>
+	</div>
+
+	<div class="body">
+		<!-- 预览 -->
+		<div id="panelPreview" class="tabPanel active">
+			<div class="stageWrap"><canvas id="cv"></canvas></div>
+			<div class="controls">
+				<button id="playBtn">▶ 播放</button>
+				<input type="range" id="frameSlider" min="0" max="1" value="0">
+				<span id="frameLabel" class="lbl">1 / 1</span>
+				<label class="ctl">FPS<input id="fpsInput" type="number" value="30" min="1" max="60"></label>
+				<label class="ctl"><input id="loopChk" type="checkbox" checked>循环</label>
+				<label class="ctl">缩放<input id="zoomSlider" type="range" min="20" max="400" value="100"><span
+						id="zoomLabel">100%</span></label>
+				<label class="ctl">动作<select id="movSel"></select></label>
+			</div>
+			<div class="boneListWrap">
+				<div class="subTitle">骨骼可见性（取消勾选 = 隐藏该层；灰色「其它动作」= 当前动作不驱动的互斥骨）</div>
+				<div id="boneList" class="boneList"></div>
+			</div>
+		</div>
+
+		<!-- 图集 -->
+		<div id="panelAtlas" class="tabPanel">
+			<div id="atlasBox" class="atlasBox"></div>
+		</div>
+
+		<!-- 动作总览 -->
+		<div id="panelGrid" class="tabPanel">
+			<div class="subTitle">互斥 movement 一次性同屏对比，点击任意缩略图即可切换到该动作。</div>
+			<div id="gridBox" class="gridBox"></div>
+		</div>
+	</div>
+
+	<script src="COCO_CORE_URI"></script>
+	<script src="PANEL_JS_URI"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+{
+  "name": "coco-animation-viewer",
+  "displayName": "CocoStudio 动画预览器",
+  "description": "在 VS Code 中可视化预览 CocoStudio 骨骼动画三件套（ExportJson + plist + png）",
+  "version": "0.1.1",
+  "publisher": "local",
+  "icon": "images/icon.png",
+  "galleryBanner": { "color": "#1e1e1e" },
+  "repository": { "type": "git", "url": "https://github.com/baozilaji/vscode-coco-animation.git" },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "activationEvents": [
+    "onCommand:coco-animation-viewer.preview"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "coco-animation-viewer.preview",
+        "title": "CocoStudio 动画: 预览 ExportJson",
+        "category": "CocoStudio"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "coco-animation-viewer.preview",
+          "when": "resourceExtname == .ExportJson",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "coco-animation-viewer.preview",
+          "when": "resourceExtname == .ExportJson",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "tsc --noEmit -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.75.0",
+    "typescript": "^5.4.5"
+  }
+}
