@@ -65,8 +65,8 @@ COCO_TEST_RES=/你的资源目录/ani_chao_yue node test/verify.js
 ## 打包与发布
 
 ### 前置条件（一次性）
-1. 在 [VS Code Marketplace 管理页](https://marketplace.visualstudio.com/manage) 用 Microsoft 账号注册 **publisher**，拿到唯一 ID，并把本工程 `package.json` 的 `"publisher": "local"` 改成该 ID。
-2. 在该 publisher 设置里，把本仓库（`baozilaji/vscode-coco-animation`）添加为 **Trusted Publisher（受信任的发布者）**。这一步是 `vsce publish --oidc` 免 PAT 发版的前提。
+1. ~~在 Marketplace 注册 publisher 并把 `package.json` 的 `publisher` 改为该 ID~~ —— 已完成：`publisher` 已设为 `baozilaji`。
+2. **仍需在网页端完成**：在 [VS Code Marketplace 管理页](https://marketplace.visualstudio.com/manage) 的 `baozilaji` publisher 设置里，把本仓库（`baozilaji/vscode-coco-animation`）添加为 **Trusted Publisher（受信任的发布者）**。这一步是 `vsce publish --oidc` 免 PAT 发版的前提，不做则发版会鉴权失败。
 
 ### 方式 A：自动发版（推荐，免 PAT）
 本仓库已内置 GitHub Actions 工作流（`.github/workflows/publish.yml`），基于 GitHub OIDC + Marketplace Trusted Publishing，无需任何令牌：
