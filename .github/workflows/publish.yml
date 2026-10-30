@@ -64,4 +64,6 @@ jobs:
           fi
 
       - name: Publish via OIDC (Trusted Publishing)
-        run: npx --yes @vscode/vsce publish --oidc
+        # 使用 devDependencies 中固定的 @vscode/vsce (>=4.1.0，支持 --oidc)，
+        # 直接调用本地二进制，避免 npx 解析到旧版或不支持 --oidc 的包。
+        run: ./node_modules/.bin/vsce publish --oidc
