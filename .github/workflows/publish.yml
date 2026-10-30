@@ -1,0 +1,67 @@
+name: Publish to VS Code Marketplace
+
+# 自动发版工作流（免 PAT，基于 GitHub OIDC + Marketplace Trusted Publishing）
+#
+# 前置条件（一次性，需用户在网页端完成）：
+#   1. 在 https://marketplace.visualstudio.com/manage 用 Microsoft 账号注册 publisher，
+#      拿到唯一 ID，并把本工程 package.json 的 "publisher": "local" 改为该 ID。
+#   2. 在该 publisher 的设置里，把本 GitHub 仓库（baozilaji/vscode-coco-animation）
+#      添加为「Trusted Publisher / 受信任的发布者」，否则 --oidc 会鉴权失败。
+#
+# 用法：
+#   本地升版本号 -> git commit -> git tag vX.Y.Z -> git push --tags
+#   本工作流会自动编译、跑测试、发布到 Marketplace。
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'          # 例如 v0.1.2
+  workflow_dispatch:      # 也支持在 Actions 页面手动触发
+
+permissions:
+  id-token: write         # vsce publish --oidc 必需（GitHub 颁发的短期 OIDC 令牌）
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Compile (tsc)
+        run: npm run compile
+
+      - name: Run logic tests (skips if COCO_TEST_RES unset)
+        run: node test/verify.js
+        env:
+          COCO_TEST_RES: ${{ secrets.COCO_TEST_RES }}   # 可选：CI 无美术资源，不设也能过
+
+      - name: Guard - publisher must not be "local"
+        run: |
+          PUB=$(node -p "require('./package.json').publisher")
+          if [ "$PUB" = "local" ]; then
+            echo "::error::package.json 的 publisher 仍是 'local'。请先在 Marketplace 注册 publisher 并改成其 ID，再发布。"
+            exit 1
+          fi
+
+      - name: Guard - tag version must match package.json
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          PKG=$(node -p "require('./package.json').version")
+          if [ "$TAG" != "$PKG" ]; then
+            echo "::error::Git 标签 $TAG 与 package.json 版本 $PKG 不一致。请先升版本号再打标签。"
+            exit 1
+          fi
+
+      - name: Publish via OIDC (Trusted Publishing)
+        run: npx --yes @vscode/vsce publish --oidc
