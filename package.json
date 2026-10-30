@@ -2,7 +2,7 @@
   "name": "coco-animation-viewer",
   "displayName": "CocoStudio 动画预览器",
   "description": "在 VS Code 中可视化预览 CocoStudio 骨骼动画三件套（ExportJson + plist + png）",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "local",
   "icon": "images/icon.png",
   "galleryBanner": { "color": "#1e1e1e" },
